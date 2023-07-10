@@ -13,6 +13,11 @@ const playerPosition = {
   y: undefined,
 };
 
+const giftPosition = {
+  x: undefined,
+  y: undefined,
+};
+
 window.addEventListener("load", setCanvasSize);
 window.addEventListener("resize", setCanvasSize);
 
@@ -61,16 +66,29 @@ function startGame() {
           playerPosition.y = posY;
           console.log({ playerPosition });
         }
+      } else if (col == "I") {
+        giftPosition.x = posX;
+        giftPosition.y = posY;
       }
 
       game.fillText(emoji, posX, posY);
     });
   });
 
-  moverPlayer();
+  movePlayer();
 }
+//metodo toFixed para limitar decimales
+function movePlayer() {
+  const giftCollisionX =
+    playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
+  const giftCollisionY =
+    playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
+  const giftCollision = giftCollisionX && giftCollisionY;
 
-function moverPlayer() {
+  if (giftCollision) {
+    console.log("Subiste de nisvel!");
+  }
+
   game.fillText(emojis["PLAYER"], playerPosition.x, playerPosition.y);
 }
 window.addEventListener("keydown", moveByKeys);
