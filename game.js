@@ -7,6 +7,7 @@ const btnDown = document.querySelector("#down");
 
 let canvasSize;
 let elementsSize;
+let level = 0;
 
 const playerPosition = {
   x: undefined,
@@ -45,7 +46,11 @@ function startGame() {
   game.textAlign = "end";
 
   //elemento que corresponde al nivel
-  const map = maps[0];
+  const map = maps[level];
+  if (!map) {
+    gameWin();
+    return;
+  }
   // variable: filas del mapa,metodo .trim: limpiar el estrin, quitar los espacios. metodo .split : creando un arreglo a partir de un estrin. ("\n") cada vez que alla un salto de linea
   const mapRows = map.trim().split("\n");
   const mapRowCols = mapRows.map((row) => row.trim().split(""));
@@ -95,7 +100,7 @@ function movePlayer() {
   const giftCollision = giftCollisionX && giftCollisionY;
 
   if (giftCollision) {
-    console.log("Subiste de nisvel!");
+    levelWin();
   }
 
   const enemyCollision = enemyPositions.find((enemy) => {
@@ -115,6 +120,16 @@ btnUp.addEventListener("click", moveUp);
 btnLeft.addEventListener("click", moveLeft);
 btnRight.addEventListener("click", moveRight);
 btnDown.addEventListener("click", moveDown);
+
+function levelWin() {
+  console.log("subiste de nivel");
+  level++;
+  startGame();
+}
+
+function gameWin() {
+  console.log("terminas el juego");
+}
 
 function moveByKeys(event) {
   if (event.key == "ArrowUp") moveUp();
