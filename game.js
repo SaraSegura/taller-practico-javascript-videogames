@@ -5,9 +5,11 @@ const btnLeft = document.querySelector("#left");
 const btnRight = document.querySelector("#right");
 const btnDown = document.querySelector("#down");
 const spanLives = document.querySelector("#lives");
+const spanTime = document.querySelector("#time");
 
 let canvasSize;
 let elementsSize;
+let timeStart;
 let level = 0;
 let lives = 3;
 
@@ -52,6 +54,10 @@ function startGame() {
   if (!map) {
     gameWin();
     return;
+  }
+
+  if (!timeStart) {
+    timeStart = Date.now();
   }
   // variable: filas del mapa,metodo .trim: limpiar el estrin, quitar los espacios. metodo .split : creando un arreglo a partir de un estrin. ("\n") cada vez que alla un salto de linea
   const mapRows = map.trim().split("\n");
@@ -157,6 +163,7 @@ function showLives() {
 
   heartArray.forEach((heart) => spanLives.append(heart));
 }
+function showTime() {}
 
 function moveByKeys(event) {
   if (event.key == "ArrowUp") moveUp();
