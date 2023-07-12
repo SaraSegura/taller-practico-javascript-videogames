@@ -4,6 +4,10 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
 }
 
 .game-container {
@@ -25,11 +29,11 @@ canvas {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: -5% auto -2% auto;
+  gap: 5px;
   width: 100%;
 }
 
-button {
+.button {
   background-color: #fdef05;
   border-radius: 8px;
   border-color: #ff6600;
@@ -44,16 +48,16 @@ button:not(:last-child) {
 
 .messages {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 460px;
+  flex-direction: column;
+  text-align: center;
+}
+.info {
+  display: flex;
+  gap: 25px;
 }
 
 p {
-  display: block;
-  margin: 0;
-  width: 100%;
+  font-size: 1rem;
 }
 
 @media (max-width: 440px) {

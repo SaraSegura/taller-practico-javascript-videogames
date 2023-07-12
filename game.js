@@ -8,6 +8,7 @@ const spanLives = document.querySelector("#lives");
 const spanTime = document.querySelector("#time");
 const spanRecord = document.querySelector("#record");
 const pResult = document.querySelector("#result");
+const botonReiniciar = document.querySelector("#reset");
 
 let canvasSize;
 let elementsSize;
@@ -32,7 +33,7 @@ let enemyPositions = [];
 
 window.addEventListener("load", setCanvasSize);
 window.addEventListener("resize", setCanvasSize);
-
+botonReiniciar.addEventListener("click", reiniciarJuego);
 function setCanvasSize() {
   if (window.innerHeight > window.innerWidth) {
     canvasSize = window.innerWidth * 0.7;
@@ -44,7 +45,7 @@ function setCanvasSize() {
   canvas.setAttribute("width", canvasSize);
   canvas.setAttribute("height", canvasSize);
 
-  elementsSize = canvasSize / 10;
+  elementsSize = canvasSize / 10.2;
 
   playerPosition.x = undefined;
   playerPosition.y = undefined;
@@ -54,8 +55,10 @@ function setCanvasSize() {
 function startGame() {
   console.log({ canvasSize, elementsSize });
 
-  game.font = elementsSize + "px Poppins";
-  game.textAlign = "end";
+  game.font = Math.floor(Number(elementsSize)) + "px Poppins";
+  game.textAlign = "start";
+  game.direction = "rtl";
+  game.letterSpacing = canvasSize <= 263 ? "-5px" : "-10px";
 
   //elemento que corresponde al nivel
   const map = maps[level];
@@ -206,30 +209,28 @@ function moveByKeys(event) {
 }
 
 function moveUp() {
-  if (playerPosition.y < elementsSize) return console.log("Llegamos al limite");
+  if (playerPosition.y <= elementsSize) return;
   playerPosition.y -= elementsSize;
-  console.log("Me quiero mover hacia arriba");
   startGame();
 }
 
 function moveLeft() {
-  if (playerPosition.x == elementsSize)
-    return console.log("Llegamos al limite");
+  if (playerPosition.x == elementsSize) return;
   playerPosition.x -= elementsSize;
-  console.log("Me quiero mover hacia izquierda");
   startGame();
 }
 
 function moveRight() {
-  if (playerPosition.x > canvasSize) return console.log("Llegamos al limite");
+  if (playerPosition.x > canvasSize) return;
   playerPosition.x += elementsSize;
-  console.log("Me quiero mover hacia derecha");
   startGame();
 }
 
 function moveDown() {
-  if (playerPosition.y == canvasSize) return console.log("Llegamos al limite");
+  if (playerPosition.y == canvasSize) return;
   playerPosition.y += elementsSize;
-  console.log("Me quiero mover hacia abajo");
   startGame();
+}
+function reiniciarJuego() {
+  location.reload();
 }
