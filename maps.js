@@ -8,6 +8,7 @@ const emojis = {
   O: "🚪",
   X: "💣",
   I: "🍯",
+  P: "🧱",
   PLAYER: "🐻",
   BOMB_COLLISION: "🔥",
   GAME_OVER: "👎",

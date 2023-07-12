@@ -9,9 +9,12 @@ const spanTime = document.querySelector("#time");
 
 let canvasSize;
 let elementsSize;
-let timeStart;
 let level = 0;
 let lives = 3;
+
+let timeStart;
+let timePlayert;
+let timeInterval;
 
 const playerPosition = {
   x: undefined,
@@ -58,6 +61,7 @@ function startGame() {
 
   if (!timeStart) {
     timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100);
   }
   // variable: filas del mapa,metodo .trim: limpiar el estrin, quitar los espacios. metodo .split : creando un arreglo a partir de un estrin. ("\n") cada vez que alla un salto de linea
   const mapRows = map.trim().split("\n");
@@ -146,6 +150,7 @@ function levelFail() {
   if (lives <= 0) {
     level = 0;
     lives = 3;
+    timeStart = undefined;
   }
 
   playerPosition.x = undefined;
@@ -155,6 +160,7 @@ function levelFail() {
 
 function gameWin() {
   console.log("terminas el juego");
+  clearInterval(timeInterval);
 }
 
 function showLives() {
@@ -163,7 +169,9 @@ function showLives() {
 
   heartArray.forEach((heart) => spanLives.append(heart));
 }
-function showTime() {}
+function showTime() {
+  spanTime.innerHTML = Date.now() - timeStart;
+}
 
 function moveByKeys(event) {
   if (event.key == "ArrowUp") moveUp();
