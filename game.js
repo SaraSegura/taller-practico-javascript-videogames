@@ -215,56 +215,27 @@ function moveByKeys(event) {
 }
 
 function moveUp() {
-  if (
-    playerPosition.y <= elementsSize ||
-    isTreeAtPosition(playerPosition.x, playerPosition.y - elementsSize)
-  )
-    return;
+  if (playerPosition.y <= elementsSize) return;
   playerPosition.y -= elementsSize;
   startGame();
 }
 
 function moveLeft() {
-  if (
-    playerPosition.x == elementsSize ||
-    isTreeAtPosition(playerPosition.x - elementsSize, playerPosition.y)
-  )
-    return;
+  if (playerPosition.x == elementsSize) return;
   playerPosition.x -= elementsSize;
   startGame();
 }
 
 function moveRight() {
-  if (
-    playerPosition.x >= canvasSize - elementsSize ||
-    isTreeAtPosition(playerPosition.x + elementsSize, playerPosition.y)
-  )
-    return;
+  if (playerPosition.x > canvasSize) return;
   playerPosition.x += elementsSize;
   startGame();
 }
 
 function moveDown() {
-  if (
-    playerPosition.y >= canvasSize - elementsSize ||
-    isTreeAtPosition(playerPosition.x, playerPosition.y + elementsSize)
-  )
-    return;
+  if (playerPosition.y == canvasSize) return;
   playerPosition.y += elementsSize;
   startGame();
-}
-function isTreeAtPosition(x, y) {
-  const rowIndex = Math.floor((y - elementsSize) / elementsSize);
-  const colIndex = Math.floor((x - elementsSize) / elementsSize);
-  const map = maps[level];
-  const mapRows = map.trim().split("\n");
-  const mapRowCols = mapRows.map((row) => row.trim().split(""));
-
-  if (mapRowCols[rowIndex] && mapRowCols[rowIndex][colIndex] === "A") {
-    return true;
-  }
-
-  return false;
 }
 
 function reiniciarJuego() {
