@@ -2,7 +2,7 @@
 
 Bienvenido a BeeRunner, un emocionante juego desarrollado con tecnologías web como JavaScript, HTML5 y CSS. ¡Prepárate para sumergirte en un mundo de desafíos mientras guías a nuestro intrépido oso en busca de la preciada miel!🐻🍯
 
-<img src="https://github.com/sarasegura/taller-practico-javascript-videogames/assets/137323950/83c91c26-0366-4251-a02a-706ab0cde986" width="400" style="border-radius: 50px;">
+<img src="https://github.com/sarasegura/taller-practico-javascript-videogames/assets/137323950/83c91c26-0366-4251-a02a-706ab0cde986" width="300" style="border-radius: 50px;">
 
 
 
