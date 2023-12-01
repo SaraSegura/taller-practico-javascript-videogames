@@ -1,6 +1,8 @@
 # [BeeRunner - ¡En busca de la miel!🍯](https://sarasegura.github.io/taller-practico-javascript-videogames/)
 
 Bienvenido a BeeRunner, un emocionante juego desarrollado con tecnologías web como JavaScript, HTML5 y CSS. ¡Prepárate para sumergirte en un mundo de desafíos mientras guías a nuestro intrépido oso en busca de la preciada miel!
+🐻🍯![BathHoneyGIF](https://github.com/sarasegura/taller-practico-javascript-videogames/assets/137323950/83c91c26-0366-4251-a02a-706ab0cde986)
+
 
 ## Descripción del Juego
 
@@ -22,5 +24,5 @@ BeeRunner es un juego de plataformas en el que controlas a un oso valiente que d
 - **CSS:** Los estilos y la presentación están gestionados con CSS para un diseño atractivo.
 
 ## Autor
-Sara Paola Segura Devia
+Sara Paola Segura Devia - Front-end Developer.
 
